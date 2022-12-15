@@ -1,7 +1,7 @@
 // C++ code
 //
-#include "Libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.h"
-#include "ezButton.h"
+#include <Adafruit_NeoPixel.h>
+#include <ezButton.h>
 
 
 #define NUMPIXELS 12
@@ -50,7 +50,7 @@ void loop()
     if(button.isReleased()){
       songStartTime = millis();
 
-      /*for(int a = 0; a < 5; a++){
+      for(int a = 0; a < 5; a++){
        setColor();
        for (int i = 0; i < NUMPIXELS; i++) {
         pixels.setPixelColor(i, pixels.Color(redColor, greenColor, blueColor));
@@ -66,7 +66,7 @@ void loop()
         pixels.show();
 
         delay(delayval);        
-      }*/
+      }
       
     }
   #pragma region print_stuff
