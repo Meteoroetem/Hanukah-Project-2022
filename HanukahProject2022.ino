@@ -1,7 +1,7 @@
 // C++ code
 //
-#include <Adafruit_NeoPixel.h>
-#include <ezButton.h>
+#include "Libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.h"
+#include "Libraries\ezButton\src\ezButton.h"
 
 
 #define NUMPIXELS 12
