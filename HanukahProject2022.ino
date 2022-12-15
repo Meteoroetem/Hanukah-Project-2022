@@ -17,7 +17,7 @@ int notes[] = {440,440,494,523,523,494,659,659,587,523,494,
 523,523,494,440,440,494,523,523,587,659,659,659,330,440,
 440,440,587,587,587,698,659,659,523,494,440,415,415,330,
 415,440,494,523,494,440,587,587,587,698,659,659,523,494,440,415,415,330,415,440,440,440};
-int lengths[] = {500,500,1000,500,500,1000,500,500,200,200,200,500,500,1000,500,500,1000
+int lengths[] = {500,500,1000,500,500,1000,500,500,200,200,500,500,500,1000,500,500,1000
 ,500,500,1000,500,500,500,500,500,500,1000,500,500,500,500,500,500,200,200,500,500,500,500,
 500,500,500,200,200,500,500,500,500,500,500,500,200,200,500,500,500,500,500,500,500,1000};
 float songSpeed = 2;
@@ -53,15 +53,17 @@ void setColor() {
 void loop()
 {
     button.loop();
-
-  	potentVal = analogRead(A0);
   	analogWrite(3,255);
     
     if(button.isReleased()){
       songStartTime = millis();
       //tone(9,notes[0]);
       for(int i = 0; i < my_sizeof(notes)/my_sizeof(notes[0]); i++){
-
+        potentVal = analogRead(A0);
+        songSpeed = potentVal/341;
+        if(songSpeed < 0.5){
+          songSpeed = 0.5;
+        }
         tone(9,notes[i]);
 
         setColor();
@@ -79,10 +81,10 @@ void loop()
         }
         
        
-        
-        delay((1/songSpeed)*lengths[i]);
+        Serial.println(songSpeed);
+        delay((1/(2*songSpeed))*lengths[i]);
         noTone(9);
-        delay(10);
+        //delay(10);
       }
       
       /*for(int a = 0; a < 5; a++){
@@ -108,7 +110,7 @@ void loop()
   #pragma region print_stuff
 	  Serial.print(digitalRead(4));
   	Serial.print(",");
-    Serial.print(potentVal);
+    Serial.print(analogRead(A0));
     Serial.print("\n");
     #pragma endregion
 }
