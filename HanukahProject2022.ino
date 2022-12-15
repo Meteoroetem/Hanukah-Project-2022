@@ -1,7 +1,7 @@
 // C++ code
 //
-#include <Libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.h>
-#include <Libraries\ezButton\src\ezButton.h>
+#include "Libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.h"
+#include "ezButton.h"
 
 
 #define NUMPIXELS 12
@@ -11,7 +11,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 int potentVal;
 int delayval = 100; // timing delay in milliseconds
 
-int songStarTime;
+int songStartTime;
 
 int redColor = 200;
 int greenColor = 0;
@@ -76,17 +76,3 @@ void loop()
     Serial.print("\n");
     #pragma endregion
 }
-
-
-class ArduinoSong : public JSONBase
-{
-public:
-  ArduinoSong();		
-  virtual ~ArduinoSong();			
-
-  virtual bool Deserialize(const rapidjson::Value& obj);
-  virtual bool Serialize(rapidjson::Writer<rapidjson::StringBuffer>* writer) const;
-
-  // Getters/Setters.
-  int notes[]
-};

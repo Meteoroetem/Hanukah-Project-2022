@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:uno",
-    "sketch": "main\\main.ino",
+    "sketch": "HanukahProject2022.ino",
     "port": "COM5"
 }
