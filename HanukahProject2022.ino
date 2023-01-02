@@ -4,7 +4,7 @@
 #include <ezButton.h>
 
 
-#define NUMPIXELS 16
+#define NUMPIXELS 24
 #define PIN 5
 # define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 
@@ -64,7 +64,7 @@ void loop()
         if(songSpeed < 0.5){
           songSpeed = 0.5;
         }
-        tone(9,notes[i]);
+        tone(10,notes[i]);
 
         setColor();
         for (int i = currentLed; i < currentLed+4; i++)
@@ -75,7 +75,7 @@ void loop()
           delay(50);
         }
         currentLed += 4;
-        if (currentLed >= 16)
+        if (currentLed >= 24)
         {
           currentLed = 0;
         }
@@ -83,7 +83,7 @@ void loop()
        
         Serial.println(songSpeed);
         delay((1/(2*songSpeed))*lengths[i]);
-        noTone(9);
+        noTone(10);
         //delay(10);
       }
       
